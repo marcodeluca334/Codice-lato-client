@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifica Aereo</title>
+  <script src="script.js" defer></script>
+  <style>
+    .nascosto { display: none; }
+    span.error { color: red; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+  <h1>Modifica Aereo</h1>
+
+<form id="modulo_aereo" action="modifica.php" method="POST">
+    <!-- ID nascosto -->
+    <input type="hidden" name="id" value="42">
+    <!-- Nome -->
+    <label for="nome">Nome: </label>
+    <input type="text" name="nome" id="nome" value="Freccia volante">
+    <span id="err_nome" class="error"></span>
+    <br><br>
+    <!-- Tipologia -->
+    <label>Tipologia:</label>
+    <input type="radio" name="tipologia" id="tipologiaP" value="P" checked>
+    <label for="tipologiaP">Passeggeri</label>
+    <input type="radio" name="tipologia" id="tipologiaM" value="M">
+    <label for="tipologiaM">Merci</label>
+    <span id="err_tipologia" class="error"></span>
+    <br><br>
+    <!-- Note -->
+    <div id="box_note" class="nascosto">
+      <label for="note">Note:</label><br>
+      <textarea name="note" id="note" rows="4" cols="40"></textarea>
+      <span id="err_note" class="error"></span>
+    </div>
+    <br>
+    <!-- Pulsante di invio -->
+    <button type="submit">Modifica</button>
+    <!-- Pulsante AJAX -->
+    <button type="button" id="ajax_btn">Invia richiesta AJAX</button>
+</form>
+
+</body>
+</html>
