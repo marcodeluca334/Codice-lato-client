@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica Aereo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="aereo_form.js"></script>
+    <style>
+        .errore { color: red; font-size: 0.9em; margin-left: 10px; }
+        #note_container { display: none; margin-top: 10px; }
+        .campo-gruppo { margin-bottom: 15px; }
+        label { display: inline-block; width: 80px; }
+    </style>
+</head>
+<body>
+
+    <h1>Modifica Aereo</h1>
+
+    <form name="aereo_form" id="aereo_form" method="POST" action="modifica.php">
+        <input type="hidden" name="id" value="42">
+        <div class="campo-gruppo">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" value="Freccia volante" id="nome">
+            <span id="err_nome" class="errore"></span>
+        </div>
+        <div class="campo-gruppo">
+            <label>Tipologia:</label>
+            <input type="radio" id="tipo_p" name="tipologia" value="P" checked> 
+            <label for="tipo_p" style="width: auto;">Passeggeri</label>
+            
+            <input type="radio" id="tipo_m" name="tipologia" value="M"> 
+            <label for="tipo_m" style="width: auto;">Merci</label>
+            <span id="err_tipologia" class="errore"></span>
+        </div>
+        <div class="campo-gruppo" id="note_container">
+            <label for="note">Note (min 10 car.):</label><br>
+            <textarea name="note" id="note" rows="4" cols="50"></textarea>
+            <span id="err_note" class="errore"></span>
+        </div>
+        <input type="submit" value="Salva Modifiche">
+    </form>
+    
+    <hr>
+    
+    <h2>Richiesta Asincrona</h2>
+    <button id="richiesta_ajax">Controlla Note (AJAX)</button>
+
+    </body>
+</html>
