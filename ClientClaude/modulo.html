@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifica Aereo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .radio-group {
+            margin-top: 5px;
+        }
+        .radio-group label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #btn_ajax {
+            background-color: #28a745;
+        }
+        #btn_ajax:hover {
+            background-color: #218838;
+        }
+        #risposta {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modifica Aereo</h1>
+    
+    <form name="formAereo" method="POST" action="modifica.php">
+        <input type="hidden" name="id" value="42">
+        
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="Freccia volante">
+            <span id="err_nome" class="error"></span>
+        </div>
+        
+        <div class="form-group">
+            <label>Tipologia:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="tipologia" value="P" checked>
+                    Passeggeri
+                </label>
+                <label>
+                    <input type="radio" name="tipologia" value="M">
+                    Merci
+                </label>
+            </div>
+            <span id="err_tipologia" class="error"></span>
+        </div>
+        
+        <div class="form-group hidden" id="noteGroup">
+            <label for="note">Note:</label>
+            <textarea name="note" id="note" rows="4"></textarea>
+            <span id="err_note" class="error"></span>
+        </div>
+        
+        <div>
+            <button type="submit">Invia</button>
+            <button type="button" id="btn_ajax">Richiesta AJAX</button>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
